@@ -19,7 +19,7 @@ import type {
 } from '../types'
 import { createSeedState } from '../data/seed'
 
-const STORAGE_KEY = 'stupen.state.v1'
+const STORAGE_KEY = 'stupen.state.v2'
 const THEME_KEY = 'stupen.theme'
 
 export type ToastTone = 'success' | 'error' | 'info'
@@ -108,7 +108,7 @@ function uid(prefix: string): string {
   return `${prefix}-${Math.random().toString(36).slice(2, 9)}${Date.now().toString(36).slice(-3)}`
 }
 
-const AVATAR_COLORS = ['#6d4aff', '#0ea5e9', '#10b981', '#f97316', '#a855f7', '#ef4444', '#0f766e']
+const AVATAR_COLORS = ['#2b5ce6', '#0e7fa8', '#0c8a6c', '#c9820c', '#475569', '#155e75', '#6366f1']
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AppState>(loadState)

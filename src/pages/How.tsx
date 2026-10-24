@@ -287,7 +287,7 @@ export default function How() {
         <div className="container">
           <div className="cta-banner">
             <div>
-              <span className="eyebrow" style={{ color: '#c4b5fd' }}>
+              <span className="eyebrow" style={{ color: '#9cc0ff' }}>
                 Остались вопросы
               </span>
               <h2>Разберём ваш случай лично</h2>

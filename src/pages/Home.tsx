@@ -175,7 +175,7 @@ export default function Home() {
                 <div className="hero__stat-label">компаний</div>
               </div>
               <div>
-                <div className="hero__stat-value">{Math.round(fund / 1000)} тыс. ₽</div>
+                <div className="hero__stat-value">{Math.round(fund / 1000)}&nbsp;тыс.&nbsp;₽</div>
                 <div className="hero__stat-label">вознаграждений</div>
               </div>
               <div>
@@ -400,7 +400,7 @@ export default function Home() {
         <div className="container">
           <div className="cta-banner">
             <div>
-              <span className="eyebrow" style={{ color: '#c4b5fd' }}>
+              <span className="eyebrow" style={{ color: '#9cc0ff' }}>
                 Для компаний
               </span>
               <h2>Студенты решают задачи, до которых не доходят руки</h2>
@@ -432,7 +432,7 @@ export default function Home() {
                 месяца у меня был проект в портфолио и приглашение на джуна.
               </p>
               <div className="quote__author">
-                <span className="avatar" style={{ background: '#8b5cf6' }}>
+                <span className="avatar" style={{ background: '#2b5ce6' }}>
                   АК
                 </span>
                 <div>
@@ -448,7 +448,7 @@ export default function Home() {
                 пилоте — дешевле и быстрее, чем нанимать подрядчика.
               </p>
               <div className="quote__author">
-                <span className="avatar" style={{ background: '#0ea5e9' }}>
+                <span className="avatar" style={{ background: '#0e7fa8' }}>
                   ПД
                 </span>
                 <div>
@@ -464,7 +464,7 @@ export default function Home() {
                 человек работает, а не что написано в резюме.
               </p>
               <div className="quote__author">
-                <span className="avatar" style={{ background: '#f97316' }}>
+                <span className="avatar" style={{ background: '#c9820c' }}>
                   ОП
                 </span>
                 <div>

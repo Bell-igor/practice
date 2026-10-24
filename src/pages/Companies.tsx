@@ -115,7 +115,7 @@ export default function Companies() {
 
         <div className="cta-banner mt-48">
           <div>
-            <span className="eyebrow" style={{ color: '#c4b5fd' }}>
+            <span className="eyebrow" style={{ color: '#9cc0ff' }}>
               Ваша компания
             </span>
             <h2>Разместите первый кейс бесплатно</h2>

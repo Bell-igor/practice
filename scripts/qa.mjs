@@ -145,10 +145,10 @@ async function screenshot(name, fullPage = false) {
 /** Устанавливает залогиненного пользователя и открывает кабинет. */
 async function loginAs(userId) {
   await evaluate(`(() => {
-    const raw = localStorage.getItem('stupen.state.v1')
+    const raw = localStorage.getItem('stupen.state.v2')
     const state = JSON.parse(raw)
     state.currentUserId = ${JSON.stringify(userId)}
-    localStorage.setItem('stupen.state.v1', JSON.stringify(state))
+    localStorage.setItem('stupen.state.v2', JSON.stringify(state))
   })()`)
   await reload(900)
   await goto('#/dashboard', 1100)
@@ -212,6 +212,7 @@ await evaluate(`(() => {
 })()`)
 await sleep(1300)
 await screenshot('08-dashboard-student')
+await screenshot('08-dashboard-student-full', true)
 results.push(['login: кабинет студента', await evaluate(`document.body.innerText.includes('Мои отклики')`)])
 
 // 9. Портфолио
@@ -248,9 +249,9 @@ results.push(['apply: статус отклика', await evaluate(`document.bod
 
 // 11. Работодатель: вход по кнопке демо-работодателя
 await evaluate(`(() => {
-  const s = JSON.parse(localStorage.getItem('stupen.state.v1'))
+  const s = JSON.parse(localStorage.getItem('stupen.state.v2'))
   s.currentUserId = null
-  localStorage.setItem('stupen.state.v1', JSON.stringify(s))
+  localStorage.setItem('stupen.state.v2', JSON.stringify(s))
 })()`)
 await reload(700)
 await goto('#/login', 800)
@@ -296,9 +297,9 @@ await send('Emulation.setDeviceMetricsOverride', {
 // 15. Тёмная тема
 await goto('#/')
 await evaluate(`(() => {
-  const s = JSON.parse(localStorage.getItem('stupen.state.v1'))
+  const s = JSON.parse(localStorage.getItem('stupen.state.v2'))
   s.currentUserId = null
-  localStorage.setItem('stupen.state.v1', JSON.stringify(s))
+  localStorage.setItem('stupen.state.v2', JSON.stringify(s))
 })()`)
 await reload(700)
 await goto('#/', 700)
@@ -308,12 +309,16 @@ await evaluate(`(() => {
 })()`)
 await sleep(700)
 await screenshot('16-dark-home')
+await goto('#/cases', 800)
+await screenshot('16-dark-cases')
+await goto('#/cases/c-010', 800)
+await screenshot('16-dark-case')
 
 console.log('\n--- проверки ---')
 for (const [name, value] of results) console.log(`${name}: ${value}`)
 
 const stored = await evaluate(`(() => {
-  const s = JSON.parse(localStorage.getItem('stupen.state.v1'))
+  const s = JSON.parse(localStorage.getItem('stupen.state.v2'))
   return { users: s.users.length, cases: s.cases.length, apps: s.applications.length, current: s.currentUserId }
 })()`)
 console.log('state:', JSON.stringify(stored))
